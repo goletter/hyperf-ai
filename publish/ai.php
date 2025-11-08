@@ -14,19 +14,19 @@ use function Hyperf\Support\env;
 return [
     'default' => env('AI_DRIVER', 'openai'),
 
-    'drivers' => [
+    'driver' => [
         'openai' => [
-            'class' => \Goletter\Ai\Drivers\OpenAiDriver::class,
-            'api_key' => env('OPENAI_API_KEY'),
-            'base_uri' => 'https://api.openai.com/v1/',
-            'model' => 'gpt-4o-mini',
+            'driver' => \Goletter\Ai\Driver\OpenAi::class,
+            'config' => [
+                'api_key' => env('OPENAI_API_KEY')
+            ]
         ],
 
         'dashscope' => [
-            'class' => \Goletter\Ai\Drivers\DashScopeDriver::class,
-            'api_key' => env('DASHSCOPE_API_KEY'),
-            'base_uri' => 'https://dashscope.aliyuncs.com/api/v1/',
-            'model' => 'qwen-turbo',
+            'driver' => \Goletter\Ai\Driver\DashScope::class,
+            'config' => [
+                'api_key' => env('DASHSCOPE_API_KEY')
+            ]
         ],
     ],
 ];

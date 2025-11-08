@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Goletter\Ai;
 
+use Goletter\Ai\Contract\AiInterface;
+
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
             'dependencies' => [
-                AiManager::class => AiManager::class,
-            ],
-            'commands' => [
+                AiInterface::class => Ai::class,
             ],
             'annotations' => [
                 'scan' => [
@@ -24,8 +24,8 @@ class ConfigProvider
             'publish' => [
                 [
                     'id' => 'config',
-                    'description' => 'The config of modelFilter client.',
-                    'source' => __DIR__ . '/publish/ai.php',
+                    'description' => 'The config of Ai client.',
+                    'source'      => __DIR__ . '/../publish/ai.php',
                     'destination' => BASE_PATH . '/config/autoload/ai.php',
                 ],
             ],
