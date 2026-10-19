@@ -9,15 +9,11 @@ use Psr\Container\ContainerInterface;
 
 class Ai
 {
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): \Goletter\Ai\Contract\AiInterface
     {
         $config = $container->get(ConfigInterface::class);
-        $driver = $config->get('ai.default', 'openai');
+        $driver = (string) $config->get('ai.default', 'openai');
 
-        /**
-         * @var AiFactory $factory
-         */
-        $factory = $container->get(AiFactory::class);
-        return $factory->make($driver);
+        return $container->get(AiFactory::class)->make($driver);
     }
 }

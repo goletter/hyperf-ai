@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Goletter\Ai;
 
+use Goletter\Ai\Contract\AiInterface;
 use Hyperf\Contract\ConfigInterface;
 use InvalidArgumentException;
 use function Hyperf\Support\make;
@@ -14,7 +15,7 @@ class AiFactory
     {
     }
 
-    public function make(string $driver)
+    public function make(string $driver): AiInterface
     {
         $option = $this->config->get('ai.driver.' . $driver, []);
 

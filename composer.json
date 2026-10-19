@@ -1,6 +1,6 @@
 {
   "name": "goletter/hyperf-ai",
-  "description": "hyperf ai",
+  "description": "Hyperf AI 客户端，支持 OpenAI、Claude、Gemini、通义、DeepSeek、Kimi、智谱、豆包等",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -11,11 +11,18 @@
   ],
   "keywords": [
     "php",
-    "hyperf"
+    "hyperf",
+    "ai",
+    "openai",
+    "dashscope",
+    "hyperf-ai"
   ],
   "require": {
     "php": ">=8.1",
+    "guzzlehttp/guzzle": "^7.0",
+    "hyperf/contract": "~3.1.0",
     "hyperf/di": "~3.1.0",
+    "hyperf/support": "~3.1.0",
     "openai-php/client": "^0.18.0"
   },
   "autoload": {
@@ -39,7 +46,7 @@
       "dev-master": "3.1-dev"
     },
     "hyperf": {
-      "config": "Hyperf\\Ai\\ConfigProvider"
+      "config": "Goletter\\Ai\\ConfigProvider"
     }
   },
   "scripts": {
